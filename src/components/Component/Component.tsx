@@ -7,7 +7,7 @@ export const Component = ({ title, component }: ComponentObject) => {
   const foo = useRef<HTMLDivElement>(null!);
 
   const [isCopied, setCopied] = useClipboard(foo.current?.innerHTML, {
-    successDuration: 2000
+    successDuration: 1000
   });
 
   return (

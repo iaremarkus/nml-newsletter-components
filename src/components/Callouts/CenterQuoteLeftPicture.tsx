@@ -1,20 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
+import { usePictures } from "hooks";
 
-export const CenterQuoteLeftPicture = () => (
-  <div className="relative text-center max-w-4xl mx-auto grid grid-cols-6 gap-4">
-    <img
-      src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGFydHl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
-      alt="Pic of foobar"
-      width="100%"
-      style={{ maxHeight: 300 }}
-      className="object-cover mb-4 mx-auto col-span-2"
-    />
+export const CenterQuoteLeftPicture = () => {
+  const { urls, setUrls } = usePictures(1);
 
-    <div className="col-span-4">
-      <h2 className="text-4xl text-slate-600 font-medium">
-        <i>Some fancy quote about the joys of working at NML on Tuesdays before 3pm</i>
-      </h2>
-      <h4 className="text-slate-500">- Ryan Barlow</h4>
+  return (
+    <div className="relative text-center max-w-4xl mx-auto grid grid-cols-6 gap-4">
+      <img
+        src={urls[0]}
+        alt="Pic of foobar"
+        width="100%"
+        style={{ maxHeight: 300 }}
+        className="object-cover mb-4 mx-auto col-span-2"
+        onClick={() => setUrls({ 0: prompt("enter url") })}
+      />
+
+      <div className="col-span-4">
+        <h2 className="text-4xl text-slate-600 font-medium" contentEditable>
+          <i>Some fancy quote about the joys of working at NML on Tuesdays before 3pm</i>
+        </h2>
+        <h4 className="text-slate-500" contentEditable>
+          - Ryan Barlow
+        </h4>
+      </div>
     </div>
-  </div>
-);
+  );
+};
