@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import { ComponentObject } from "pages";
-import { ReactElement } from "react";
-import { renderToString } from "react-dom/server";
+import { useRef } from "react";
 import useClipboard from "react-use-clipboard";
 
 export const Component = ({ title, component }: ComponentObject) => {
-  const compToCopy = component as ReactElement;
-  const [isCopied, setCopied] = useClipboard(renderToString(compToCopy), {
+  const foo = useRef<HTMLDivElement>(null!);
+
+  const [isCopied, setCopied] = useClipboard(foo.current?.innerHTML, {
     successDuration: 2000
   });
 
@@ -32,7 +32,7 @@ export const Component = ({ title, component }: ComponentObject) => {
         </button>
       </div>
 
-      <div>{component}</div>
+      <div ref={foo}>{component}</div>
     </div>
   );
 };
