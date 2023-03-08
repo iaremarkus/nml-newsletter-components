@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 export const HeaderTextLast = () => (
   <div className="relative flex justify-end items-center flex-col">
     <img
@@ -8,12 +10,8 @@ export const HeaderTextLast = () => (
     />
 
     <div className="w-full bg-slate-800 px-4 py-14 gap-2 flex justify-end items-center flex-col text-center">
-      <h1 className="relative z-20 text-5xl font-bold text-white m-0">
-        Welcome to the NML Newsletter
-      </h1>
-      <h2 className="relative z-20 text-xl font-bold text-rose-400 m-0">
-        March 2023 Edition
-      </h2>
+      <h1 className="relative z-20 text-5xl font-bold text-white m-0">Welcome to the NML Newsletter</h1>
+      <h2 className="relative z-20 text-xl font-bold text-rose-400 m-0">March 2023 Edition</h2>
     </div>
   </div>
 );

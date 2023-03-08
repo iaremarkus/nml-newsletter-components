@@ -1,8 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
+
 export const HeaderOverlaid = () => (
-  <div
-    style={{ height: 300 }}
-    className="overflow-hidden relative flex justify-end items-end flex-col"
-  >
+  <div style={{ height: 300 }} className="overflow-hidden relative flex justify-end items-end flex-col">
     <img
       src="https://images.unsplash.com/photo-1648199074391-76e5bed27d8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"
       className="object-cover h-full w-full absolute z-10"
