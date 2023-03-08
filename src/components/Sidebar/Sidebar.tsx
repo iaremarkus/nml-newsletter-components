@@ -1,9 +1,10 @@
 import classNames from "classnames";
+import { ComponentType } from "pages";
 import { Dispatch, SetStateAction } from "react";
 
 interface SidebarProps {
-  groups: string[];
-  groupState: [string | null, Dispatch<SetStateAction<string | null>>];
+  groups: ComponentType[];
+  groupState: [ComponentType | null, Dispatch<SetStateAction<ComponentType | null>>];
 }
 
 export const Sidebar = ({ groups, groupState }: SidebarProps) => {
@@ -12,7 +13,7 @@ export const Sidebar = ({ groups, groupState }: SidebarProps) => {
   return (
     <div className="col-span-3 bg-purple-400 px-10 shadow-inner">
       <div className="sticky w-full top-0 pt-10 flex flex-col gap-4">
-        {groups.map((group: string, index: number) => (
+        {groups.map((group: ComponentType, index: number) => (
           <button
             key={`group-${index}`}
             className={classNames(
