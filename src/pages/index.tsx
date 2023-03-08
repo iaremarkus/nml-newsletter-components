@@ -1,7 +1,7 @@
 import { ReactNode, useState } from "react";
 
 import { Group, Nothing, Sidebar } from "components";
-import { CenterQuote, CenterQuotePicture, LeftQuote, RightQuote } from "components/Callouts";
+import { CenterQuote, CenterQuoteLeftPicture, CenterQuotePicture, LeftQuote, RightQuote } from "components/Callouts";
 import { HeaderOverlaid, HeaderTextFirst, HeaderTextLast, HeaderTwoCol } from "components/Headers";
 import {
   OneColumn,
@@ -41,7 +41,8 @@ export default function App() {
       { title: "Right Quote", component: <RightQuote /> },
       { title: "Center Quote", component: <CenterQuote /> },
       { title: "Left Quote", component: <LeftQuote /> },
-      { title: "Center Quote w/Picture", component: <CenterQuotePicture /> }
+      { title: "Center Quote w/Picture", component: <CenterQuotePicture /> },
+      { title: "Center Quote w/Left Picture", component: <CenterQuoteLeftPicture /> }
     ]
   };
 
