@@ -1,0 +1,35 @@
+{
+  "name": "nml-newsletter-components",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.tsx",
+  "dependencies": {
+    "@svgr/core": "6.5.1",
+    "@svgr/webpack": "6.5.1",
+    "@types/react-helmet": "5.0.21",
+    "classnames": "2.3.2",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-dom-server": "0.0.5",
+    "react-helmet": "6.1.0",
+    "react-scripts": "4.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "typescript": "4.4.2"
+  },
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development concurrently \"postcss public/tailwind.css -o public/build/tailwind.css --watch\"  \"live-server ./public\"",
+    "development": "cross-env NODE_ENV=development postcss public/tailwind.css -o public/build/tailwind.css",
+    "production": "cross-env NODE_ENV=production postcss public/tailwind.css -o public/build/tailwind.css",
+    "start": "npm run serve"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
