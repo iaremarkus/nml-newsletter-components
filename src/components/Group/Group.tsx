@@ -1,8 +1,4 @@
 import { ComponentObject, ComponentType } from "pages";
-import { ReactNode, createElement, useState } from "react";
-import { renderToString } from "react-dom/server";
-
-import { useCopy } from "hooks";
 
 import { Component, Empty } from "components";
 
