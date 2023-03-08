@@ -1,14 +1,8 @@
 import { ReactNode, useState } from "react";
 
-import { Group, Nothing, Sidebar } from "./components";
-
-import {
-  HeaderOverlaid,
-  HeaderTextFirst,
-  HeaderTextLast,
-  HeaderTwoCol
-} from "./components/Headers";
-
+import { Group, Nothing, Sidebar } from "components";
+import { CenterQuote, CenterQuotePicture, LeftQuote, RightQuote } from "components/Callouts";
+import { HeaderOverlaid, HeaderTextFirst, HeaderTextLast, HeaderTwoCol } from "components/Headers";
 import {
   OneColumn,
   OneColumnColorful,
@@ -16,23 +10,14 @@ import {
   TwoColumn,
   TwoColumnColorful,
   TwoColumnColorfulWithPictures
-} from "./components/Posts";
+} from "components/Posts";
 
-import {
-  RightQuote,
-  CenterQuote,
-  LeftQuote,
-  CenterQuotePicture
-} from "./components/Callouts";
-
-import "./styles.css";
-
+export const ComponentTypes = ["Headers", "Posts", "Gallery", "Callout"] as const;
 export type ComponentObject = { title: string; component: ReactNode };
 export type ComponentGroup = Record<string, ComponentObject[]>;
+export type ComponentType = (typeof ComponentTypes)[number];
 
 export default function App() {
-  const groups = ["Headers", "Posts", "Gallery", "Callout"] as const;
-
   const components: ComponentGroup = {
     Headers: [
       { title: "Text Overlay", component: <HeaderOverlaid /> },
@@ -60,18 +45,18 @@ export default function App() {
     ]
   };
 
-  const groupState = useState<typeof groups[number] | null>(null);
+  const groupState = useState<ComponentType | null>(null);
   const [openGroup] = groupState;
 
   return (
     <div className="grid grid-cols-12 min-h-screen">
-      <Sidebar groupState={groupState} groups={groups} />
+      <Sidebar groupState={groupState} groups={[...ComponentTypes]} />
 
       <div className="col-span-9 bg-purple-100 p-10">
         {!openGroup && <Nothing />}
 
         <div className="mx-auto" style={{ maxWidth: 850 }}>
-          {groups.map((group: string, index) => (
+          {[...ComponentTypes].map((group: ComponentType, index) => (
             <Group
               key={`group-${index}`}
               title={group}
