@@ -7,3 +7,4 @@ export * from "./Component";
 export * from "./Headers";
 export * from "./Posts";
 export * from "./Callouts";
+export * from "./Dividers";

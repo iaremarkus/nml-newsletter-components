@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 
 import { Group, Nothing, Sidebar } from "components";
 import { CenterQuote, CenterQuoteLeftPicture, CenterQuotePicture, LeftQuote, RightQuote } from "components/Callouts";
+import { Checkerboard, Circles, ShortZigZag, Triangles } from "components/Dividers";
 import { HeaderOverlaid, HeaderTextFirst, HeaderTextLast, HeaderTwoCol } from "components/Headers";
 import {
   OneColumn,
@@ -12,7 +13,7 @@ import {
   TwoColumnColorfulWithPictures
 } from "components/Posts";
 
-export const ComponentTypes = ["Headers", "Posts", "Gallery", "Callout"] as const;
+export const ComponentTypes = ["Headers", "Posts", "Gallery", "Callout", "Dividers"] as const;
 export type ComponentObject = { title: string; component: ReactNode };
 export type ComponentGroup = Record<string, ComponentObject[]>;
 export type ComponentType = (typeof ComponentTypes)[number];
@@ -43,6 +44,24 @@ export default function App() {
       { title: "Left Quote", component: <LeftQuote /> },
       { title: "Center Quote w/Picture", component: <CenterQuotePicture /> },
       { title: "Center Quote w/Left Picture", component: <CenterQuoteLeftPicture /> }
+    ],
+    Dividers: [
+      {
+        title: "Short Zig Zag",
+        component: <ShortZigZag />
+      },
+      {
+        title: "Triangles",
+        component: <Triangles />
+      },
+      {
+        title: "Checkerboard",
+        component: <Checkerboard />
+      },
+      {
+        title: "Circles",
+        component: <Circles />
+      }
     ]
   };
 
